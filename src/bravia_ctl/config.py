@@ -1,11 +1,24 @@
 from __future__ import annotations
 
 import os
+import sys
 from dataclasses import dataclass, field
 from pathlib import Path
 
 DEFAULT_ENV_FILE = Path.cwd() / ".env"
-DEFAULT_COOKIE_FILE = Path.home() / ".config" / "bravia-ctl" / "cookie"
+
+
+def _get_config_dir():
+    if os.name == "nt":
+        base = Path(os.environ.get("APPDATA", Path.home() / "AppData" / "Roaming"))
+    elif sys.platform == "darwin":
+        base = Path.home() / "Library" / "Application Support"
+    else:
+        base = Path(os.environ.get("XDG_CONFIG_HOME", Path.home() / ".config"))
+    return base / "bravia-ctl"
+
+
+DEFAULT_COOKIE_FILE = _get_config_dir() / "cookie"
 
 
 @dataclass
