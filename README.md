@@ -185,15 +185,15 @@ bravia-ctl --help
 ## Quick Start
 
 ```bash
-# Set your TV's IP (or use --host each time)
-export BRAVIA_HOST=192.168.2.81
+# Create a .env file with your TV's IP (or use --host each time)
+echo "BRAVIA_HOST=192.168.2.81" > .env
 
 # Step 1: Find the PSK (no interaction needed, silent)
 bravia-ctl auth bruteforce-psk
 # Found PSK: 0000
 
-# Save it so you don't have to pass it every time
-export BRAVIA_PSK=0000
+# Save it to .env so you don't have to pass it every time
+echo "BRAVIA_PSK=0000" >> .env
 
 # Step 2: See what you can access with PSK only
 bravia-ctl auth test
