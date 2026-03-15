@@ -35,6 +35,7 @@ def cmd_power(client: BraviaClient, args: argparse.Namespace) -> None:
         _print_json(_result_or_raw(set_power(client, on=False)))
     else:
         _print_json(_result_or_raw(get_power_status(client)))
+        print("\nUsage: bravia-ctl power [on|off]")
 
 
 def cmd_volume(client: BraviaClient, args: argparse.Namespace) -> None:
@@ -47,6 +48,7 @@ def cmd_volume(client: BraviaClient, args: argparse.Namespace) -> None:
         _print_json(_result_or_raw(set_mute(client, muted=False)))
     else:
         _print_json(_result_or_raw(get_volume(client)))
+        print("\nUsage: bravia-ctl volume [set N|mute|unmute]")
 
 
 def cmd_input(client: BraviaClient, args: argparse.Namespace) -> None:
@@ -55,6 +57,7 @@ def cmd_input(client: BraviaClient, args: argparse.Namespace) -> None:
         _print_json(_result_or_raw(set_input(client, args.uri)))
     else:
         _print_json(_result_or_raw(get_inputs(client)))
+        print("\nUsage: bravia-ctl input [set URI]")
 
 
 def cmd_app(client: BraviaClient, args: argparse.Namespace) -> None:
@@ -67,6 +70,7 @@ def cmd_app(client: BraviaClient, args: argparse.Namespace) -> None:
         apps = get_apps(client)
         for app in apps:
             print(f"  {app.get('title', '?'):30s}  {app.get('uri', '')}")
+        print("\nUsage: bravia-ctl app [launch URI|status]")
 
 
 def cmd_key(client: BraviaClient, args: argparse.Namespace) -> None:
@@ -196,10 +200,9 @@ def cmd_browser(client: BraviaClient, args: argparse.Namespace) -> None:
     from bravia_ctl.commands import get_browser_url, open_url
     if args.action == "open" and args.url:
         _print_json(_result_or_raw(open_url(client, args.url)))
-    elif args.action == "get":
-        _print_json(_result_or_raw(get_browser_url(client)))
     else:
         _print_json(_result_or_raw(get_browser_url(client)))
+        print("\nUsage: bravia-ctl browser [open URL]")
 
 
 def cmd_textform(client: BraviaClient, args: argparse.Namespace) -> None:
@@ -208,6 +211,7 @@ def cmd_textform(client: BraviaClient, args: argparse.Namespace) -> None:
         _print_json(_result_or_raw(set_text_form(client, args.text)))
     else:
         _print_json(_result_or_raw(get_text_form(client)))
+        print("\nUsage: bravia-ctl textform [TEXT]")
 
 
 def cmd_powersaving(client: BraviaClient, _args: argparse.Namespace) -> None:
