@@ -172,6 +172,9 @@ bravia-ctl volume
 bravia-ctl key home
 ```
 
+![Querying TV time and volume](assets/shot-1-sony.png)
+![Fetching TV model and firmware info](assets/shot-2-sony.png)
+
 ### Philips
 
 ```bash
@@ -183,6 +186,10 @@ philips-ctl volume
 philips-ctl key VolumeUp
 philips-ctl power off
 ```
+
+![Sending remote keys to Philips TV](assets/shot-1-philips.png)
+![Checking Philips TV power state](assets/shot-2-philips.png)
+![Philips TV system info dump](assets/shot-3-philips.png)
 
 ## Commands
 
