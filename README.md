@@ -137,8 +137,8 @@ uv python list
 ## Installation
 
 ```bash
-git clone https://github.com/lestwastaken/bravia-ctl.git
-cd bravia-ctl
+git clone https://github.com/lestwastaken/tv-ctl.git
+cd tv-ctl
 uv sync
 ```
 
